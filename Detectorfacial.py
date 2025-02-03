@@ -1,14 +1,18 @@
 import cv2
 
-# Carrega o classificador pré-treinado para detecção de rostos
+# Carrega o classificador de rosto pré-treinado
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-# Inicializa a captura de vídeo da webcam
+# Inicia a captura de vídeo pela webcam (0 para a câmera padrão)
 cap = cv2.VideoCapture(0)
 
 while True:
     # Captura frame a frame
     ret, frame = cap.read()
+    
+    # Se a captura falhar, interrompe o loop
+    if not ret:
+        break
 
     # Converte para escala de cinza para melhor detecção
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -27,6 +31,6 @@ while True:
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
-# Libera a captura de vídeo e fecha todas as janelas abertas
+# Libera os recursos
 cap.release()
 cv2.destroyAllWindows()
