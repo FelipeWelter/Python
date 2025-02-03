@@ -1,4 +1,4 @@
-Código para detecção facial utilizando linguagem python e, webcam do notebook;
+Código para detecção facial utilizando linguagem python;
 Necessita importar a biblioteca:
 CÓDIGO: pip install opencv-python
 
